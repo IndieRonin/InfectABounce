@@ -44,17 +44,20 @@ public class Movement : RigidBody2D
     {
         if (icei.leftPressed)
         {
+            GD.Print("Dragging mouse");
             dragging = true;
-            
             dragStartPos = GetGlobalMousePosition();
         }
         if (icei.leftRelease && dragging)
         {
+            GD.Print("Dragging mouse complete");
             dragComplete = true;
+            dragging = false;
             dragStartPos = GetGlobalMousePosition();
         }
         if (icei.rightPressed && dragging)
         {
+            GD.Print("Dragging mouse Cancled");
             dragCanceled = true;
             dragStartPos = Vector2.Zero;
             dragStartPos = Vector2.Zero;

@@ -57,8 +57,6 @@
     <Compile Include="Scripts\InputManager.cs" />
     <Compile Include="Scripts\Main.cs" />
     <Compile Include="Scripts\Movement.cs" />
-    <Compile Include="Scripts\EventSystem\SendProgramEvent.cs" />
-    <Compile Include="Scripts\EventSystem\GetProgramEvent.cs" />
     <Compile Include="Scripts\EventSystem\RunEvent.cs" />
     <Compile Include="Scripts\EventSystem\CameraEvent.cs" />
     <Compile Include="Scripts\EventSystem\Event.cs" />
@@ -67,8 +65,6 @@
     <Compile Include="Scripts\EventSystem\MapUpdateEvent.cs" />
     <Compile Include="Scripts\EventSystem\InputCallbackEvent.cs" />
     <Compile Include="Scripts\EventSystem\SendHealthEvent.cs" />
-    <Compile Include="Scripts\EventSystem\SendUIEvent.cs" />
-    <Compile Include="Scripts\EventSystem\GetUIEvent.cs" />
     <Compile Include="Scripts\EventSystem\WinEvent.cs" />
     <Compile Include="Scripts\EventSystem\LoseEvent.cs" />
     <Compile Include="Scripts\SoundManager.cs" />
