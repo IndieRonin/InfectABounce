@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="Sprites.svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 512 512"
+   height="512"
+   width="512">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient1242"
+       inkscape:collect="always">
+      <stop
+         id="stop1238"
+         offset="0"
+         style="stop-color:#b81414;stop-opacity:0" />
+      <stop
+         id="stop1240"
+         offset="1"
+         style="stop-color:#b81414;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient
+       gradientTransform="matrix(0.5,0,0,0.5,72,40)"
+       gradientUnits="userSpaceOnUse"
+       r="16"
+       fy="80"
+       fx="16"
+       cy="80"
+       cx="16"
+       id="radialGradient1244"
+       xlink:href="#linearGradient1242"
+       inkscape:collect="always" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="312"
+     inkscape:window-x="0"
+     inkscape:window-height="719"
+     inkscape:window-width="1366"
+     inkscape:showpageshadow="false"
+     units="px"
+     showgrid="true"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="102.73392"
+     inkscape:cx="264.20022"
+     inkscape:zoom="1.6010808"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base">
+    <inkscape:grid
+       originy="256"
+       originx="256"
+       dotted="false"
+       id="grid833"
+       type="xygrid" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       inkscape:export-ydpi="96.000099"
+       inkscape:export-xdpi="96.000099"
+       inkscape:export-filename="/home/bitbadger/GameProjects/InfectABounce/Sprites/RedBlod.png"
+       d="M 32,16 A 16,16 0 0 1 16,32 16,16 0 0 1 0,16 16,16 0 0 1 16,0 16,16 0 0 1 32,16"
+       style="opacity:1;mix-blend-mode:normal;fill:#b81414;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="path835" />
+    <path
+       inkscape:export-ydpi="96.000099"
+       inkscape:export-xdpi="96.000099"
+       inkscape:export-filename="/home/bitbadger/GameProjects/InfectABounce/Sprites/BlueBlob.png"
+       id="path1222"
+       style="opacity:1;mix-blend-mode:normal;fill:#148fb8;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       d="M 96,16 A 16,16 0 0 1 80,32 16,16 0 0 1 64,16 16,16 0 0 1 80,0 16,16 0 0 1 96,16" />
+    <path
+       inkscape:export-ydpi="96.000099"
+       inkscape:export-xdpi="96.000099"
+       inkscape:export-filename="/home/bitbadger/GameProjects/InfectABounce/Sprites/GreenBlob.png"
+       d="M 160,16 A 16,16 0 0 1 144,32 16,16 0 0 1 128,16 16,16 0 0 1 144,0 16,16 0 0 1 160,16"
+       style="opacity:1;mix-blend-mode:normal;fill:#14b83d;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="path1224" />
+    <path
+       inkscape:export-ydpi="96.000099"
+       inkscape:export-xdpi="96.000099"
+       inkscape:export-filename="/home/bitbadger/GameProjects/InfectABounce/Sprites/RedBlobConverted.png"
+       id="path1226"
+       style="opacity:1;mix-blend-mode:normal;fill:url(#radialGradient1244);fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       d="M 96,80 A 16,16 0 0 1 80,96 16,16 0 0 1 64,80 16,16 0 0 1 80,64 16,16 0 0 1 96,80" />
+    <rect
+       y="0"
+       x="192"
+       height="5"
+       width="96"
+       id="rect1285"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke" />
+    <rect
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1294"
+       width="96"
+       height="5"
+       x="192"
+       y="91" />
+    <rect
+       transform="rotate(90)"
+       y="-288"
+       x="0"
+       height="5"
+       width="96"
+       id="rect1296"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke" />
+    <rect
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1298"
+       width="96"
+       height="5"
+       x="0"
+       y="-197"
+       transform="rotate(90)" />
+    <rect
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.32287;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1300"
+       width="42"
+       height="5"
+       x="219"
+       y="27" />
+    <rect
+       y="64"
+       x="219"
+       height="5"
+       width="42"
+       id="rect1302"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.32287;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke" />
+    <rect
+       transform="rotate(90)"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.32287;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1304"
+       width="42"
+       height="5"
+       x="27"
+       y="-261" />
+    <rect
+       y="-224"
+       x="27"
+       height="5"
+       width="42"
+       id="rect1306"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.32287;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       transform="rotate(90)" />
+    <rect
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1308"
+       width="96"
+       height="5"
+       x="320"
+       y="32" />
+    <rect
+       y="59"
+       x="320"
+       height="5"
+       width="96"
+       id="rect1310"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke" />
+    <rect
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1312"
+       width="96"
+       height="5"
+       x="0"
+       y="-384"
+       transform="rotate(90)" />
+    <rect
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1314"
+       width="96"
+       height="5"
+       x="0"
+       y="-357"
+       transform="rotate(90)" />
+    <rect
+       y="-256"
+       x="128"
+       height="5"
+       width="32"
+       id="rect1316"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.1547;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       transform="rotate(90)" />
+    <rect
+       transform="rotate(90)"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.1547;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1318"
+       width="32"
+       height="5"
+       x="128"
+       y="-197" />
+    <rect
+       y="128"
+       x="192"
+       height="5"
+       width="64"
+       id="rect1320"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.63299;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke" />
+    <rect
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.63299;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1322"
+       width="64"
+       height="5"
+       x="192"
+       y="155" />
+    <rect
+       transform="scale(-1)"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.1547;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1324"
+       width="32"
+       height="5"
+       x="-320"
+       y="-192" />
+    <rect
+       y="-133"
+       x="-320"
+       height="5"
+       width="32"
+       id="rect1326"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.1547;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       transform="scale(-1)" />
+    <rect
+       transform="rotate(90)"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.63299;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1328"
+       width="64"
+       height="5"
+       x="128"
+       y="-320" />
+    <rect
+       transform="rotate(90)"
+       y="-293"
+       x="128"
+       height="5"
+       width="64"
+       id="rect1330"
+       style="opacity:1;fill:#666666;fill-opacity:1;stroke-width:1.63299;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke" />
+  </g>
+</svg>
