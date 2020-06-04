@@ -23,45 +23,43 @@ public class Movement : RigidBody2D
     {
         //Register with the input event system to listen to event messages
         InputCallbackEvent.RegisterListener(GrabInput);
-
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    public override void _PhysicsProcess(float delta)
     {
-        if (dragging);
-
-    }
-
-    public override void _IntegrateForces(Physics2DDirectBodyState state)
-    {
-        if (dragging) return;
+        if(dragging)
+        {
+            //We continuesly update the start position for our force add direction to the position the blob is
+            dragStartPos = GlobalPosition;
+        }
+        //If the dragging has not completed we just exit out of hte method
+        if (!dragComplete) return;
         moveDirection = dragEndPos - dragStartPos;
+        moveDirection = moveDirection.Normalized();
         ApplyCentralImpulse(moveDirection * speed);
+        dragging = false;
+        dragComplete = false;
     }
 
     private void GrabInput(InputCallbackEvent icei)
     {
-        if (icei.leftPressed)
+        if (icei.lmbClickPressed)
         {
-            GD.Print("Dragging mouse");
             dragging = true;
-            dragStartPos = GetGlobalMousePosition();
+            dragComplete = false;
         }
-        if (icei.leftRelease && dragging)
+        if (icei.lmbClickRelease && dragging)
         {
-            GD.Print("Dragging mouse complete");
             dragComplete = true;
-            dragging = false;
-            dragStartPos = GetGlobalMousePosition();
+            dragEndPos = GetGlobalMousePosition();
         }
-        if (icei.rightPressed && dragging)
+        if (icei.rmbClickPressed && dragging)
         {
-            GD.Print("Dragging mouse Cancled");
             dragCanceled = true;
             dragStartPos = Vector2.Zero;
-            dragStartPos = Vector2.Zero;
+            dragEndPos = Vector2.Zero;
             dragging = false;
+            dragComplete = false;
         }
     }
 }

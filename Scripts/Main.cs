@@ -15,10 +15,24 @@ public class Main : Node2D
     PackedScene soundManagerScene = new PackedScene();
     //The Nodee for the sound manager
     Node soundManager;
+
+    //The scene for the sound mananger for the game
+    PackedScene mapScene = new PackedScene();
+    //The Nodee for the sound manager
+    Node map;
+
     //The scene for the players actor
     PackedScene redBlobScene = new PackedScene();
     //The player actors
     Node redBlob;
+    //The scene for the players actor
+    PackedScene blueBlobScene = new PackedScene();
+    //The player actors
+    Node blueBlob;
+    //The scene for the players actor
+    PackedScene greenBlobScene = new PackedScene();
+    //The player actors
+    Node greenBlob;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -30,14 +44,22 @@ public class Main : Node2D
 
     private void LoadScenes()
     {
-        //Load the scene into the packed scene to load it later
+        //Load the input manager scene into the packed scene to load it later
         inputManagerScene = ResourceLoader.Load("res://Scenes/InputManager.tscn") as PackedScene;
-        //Load the scene into the packed scene to load it later
+        //Load the UI manager scene into the packed scene to load it later
         uiManagerScene = ResourceLoader.Load("res://Scenes/UIManager.tscn") as PackedScene;
-        //Load the scene into the packed scene to load it later
+        //Load the sound manager scene into the packed scene to load it later
         soundManagerScene = ResourceLoader.Load("res://Scenes/SoundManager.tscn") as PackedScene;
+
+        //Load the map scene into the packed scene to load it later
+        mapScene = ResourceLoader.Load("res://Scenes/Map.tscn") as PackedScene;
+
         //Load the redblob scene
         redBlobScene = ResourceLoader.Load("res://Scenes/RedBlob.tscn") as PackedScene;
+        //Load the redblob scene
+        blueBlobScene = ResourceLoader.Load("res://Scenes/BlueBlob.tscn") as PackedScene;
+        //Load the redblob scene
+        greenBlobScene = ResourceLoader.Load("res://Scenes/GreenBlob.tscn") as PackedScene;
     }
 
     private void InstatiateScenes()
@@ -56,12 +78,31 @@ public class Main : Node2D
         //Set the sound manager as the child of the main scene
         AddChild(soundManager);
 
+        //Instance the map and set it as a child of the main scene
+        map = mapScene.Instance();
+        //Set the map as the child of the main scene
+        AddChild(map);
+
         //Instance thet reb blob scene
         redBlob = redBlobScene.Instance();
         //Set the blobs spawn position
         ((Node2D)redBlob).Position = new Vector2(300, 300);
         //Add the reb blob as a child of the main scene
         AddChild(redBlob);
+
+        //Instance thet reb blob scene
+        blueBlob = blueBlobScene.Instance();
+        //Set the blobs spawn position
+        ((Node2D)blueBlob).Position = new Vector2(500, 300);
+        //Add the reb blob as a child of the main scene
+        AddChild(blueBlob);
+
+        //Instance thet reb blob scene
+        greenBlob = greenBlobScene.Instance();
+        //Set the blobs spawn position
+        ((Node2D)greenBlob).Position = new Vector2(700, 300);
+        //Add the reb blob as a child of the main scene
+        AddChild(greenBlob);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

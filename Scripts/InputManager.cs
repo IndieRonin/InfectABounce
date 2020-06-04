@@ -4,8 +4,6 @@ using EventCallback;
 
 public class InputManager : Node2D
 {
-    InputCallbackEvent icei;
-    MouseInputCallbackEvent micei;
     bool upCheck, downCheck, leftCheck, rightCheck;
     ulong lastMousePosTimeEntry = 0;
     bool mouseUpdateCalled = false;
@@ -14,7 +12,7 @@ public class InputManager : Node2D
     {
         if (@event is InputEventMouseButton || @event is InputEventKey)
         {
-            icei = new InputCallbackEvent();
+           InputCallbackEvent icei = new InputCallbackEvent();
             if (@event.IsActionPressed("LeftMouseButton")) icei.lmbClickPressed = true;
             if (@event.IsActionReleased("LeftMouseButton")) icei.lmbClickRelease = true;
             if (@event.IsActionPressed("RightMouseButton")) icei.rmbClickPressed = true;
