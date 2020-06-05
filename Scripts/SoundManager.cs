@@ -7,8 +7,8 @@ public class SoundManager : Node2D
     AudioStreamPlayer2D soundEffects = new AudioStreamPlayer2D();
     AudioStreamPlayer2D music = new AudioStreamPlayer2D();
 
-List<AudioStreamSample> soundEffectsList = new List<AudioStreamSample>();
-List<AudioStreamSample> musicList = new List<AudioStreamSample>();
+List<AudioStream> soundEffectsList = new List<AudioStream>();
+List<AudioStream> musicList = new List<AudioStream>();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -18,6 +18,15 @@ List<AudioStreamSample> musicList = new List<AudioStreamSample>();
         AddChild(soundEffects);
         music.Name = "Music";
         AddChild(music);
+
+        soundEffectsList.Add(ResourceLoader.Load("res://Sounds/Effects/impactsplat.wav") as AudioStream);
+        musicList.Add(ResourceLoader.Load("res://Sounds/Music/the_kings_forgotten_medallion.ogg") as AudioStream);
+
+        soundEffects.Stream = soundEffectsList[0];
+        soundEffects.Play();
+
+        music.Stream = musicList[0];
+        music.Play();
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/the_kings_forgotten_medallion.ogg-2b4cd3de2205804101deebfb5b4a85e3.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/the_kings_forgotten_medallion.ogg"
+dest_files=[ "res://.import/the_kings_forgotten_medallion.ogg-2b4cd3de2205804101deebfb5b4a85e3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
