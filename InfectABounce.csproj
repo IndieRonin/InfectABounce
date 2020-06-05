@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\BlueBlob.cs" />
+    <Compile Include="Scripts\EventSystem\PlayAudioEvent.cs" />
     <Compile Include="Scripts\GreenBlobCollision.cs" />
     <Compile Include="Scripts\Health.cs" />
     <Compile Include="Scripts\InputManager.cs" />
