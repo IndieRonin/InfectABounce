@@ -52,10 +52,15 @@ public class SoundManager : Node2D
         {
 
         }
-        //Check the target for the audio
-        if (paei.AudioTarget != null)
+        if (paei.soundEffectType == SoundEffectType.HIT)
         {
-
+            //Check the target is not the map
+            if (!paei.AudioTarget.IsInGroup("Map"))
+            {
+                //If the target is not the map it must be one of the blobs so we want to play the impactsplat sound
+                soundEffects.Stream = soundEffectsList[0];
+                soundEffects.Play();
+            }
         }
     }
 

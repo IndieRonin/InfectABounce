@@ -33,7 +33,7 @@ public class GreenBlobCollision : RigidBody2D
         }
         if (body.IsInGroup("BlueBlob"))
         {
-            if (((BlueBlob)body).Infected())
+            if (((BlueBlobCollision)body).Infected())
             {
                 HitEvent hei = new HitEvent();
                 hei.target = (Node2D)this;
@@ -42,5 +42,9 @@ public class GreenBlobCollision : RigidBody2D
                 hei.FireEvent();
             }
         }
+                    PlayAudioEvent paei = new PlayAudioEvent();
+            paei.soundEffectType = SoundEffectType.HIT;
+            paei.AudioTarget = (Node2D)this;
+            paei.FireEvent();
     }
 }

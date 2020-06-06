@@ -1,7 +1,7 @@
 using Godot;
 using System;
-
-public class BlueBlob : RigidBody2D
+using EventCallback;
+public class BlueBlobCollision : RigidBody2D
 {
     //Set to true if the blue blob was touched by the red blob
     bool infected = false;
@@ -27,6 +27,11 @@ public class BlueBlob : RigidBody2D
             blueSprite.Hide();
             redSprite.Show();
         }
+                    PlayAudioEvent paei = new PlayAudioEvent();
+            paei.soundEffectType = SoundEffectType.HIT;
+            paei.AudioTarget = (Node2D)this;
+            paei.FireEvent();
+
     }
 
     public bool Infected()

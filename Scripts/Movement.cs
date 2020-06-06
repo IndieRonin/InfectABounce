@@ -27,7 +27,7 @@ public class Movement : RigidBody2D
 
     public override void _PhysicsProcess(float delta)
     {
-        if(dragging)
+        if (dragging)
         {
             //We continuesly update the start position for our force add direction to the position the blob is
             dragStartPos = GlobalPosition;

@@ -19,6 +19,12 @@ config/name="InfectABounce"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+
 [input]
 
 LeftMouseButton={
@@ -34,4 +40,5 @@ RightMouseButton={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.670588, 0.298039, 0.298039, 1 )
 environment/default_environment="res://default_env.tres"
