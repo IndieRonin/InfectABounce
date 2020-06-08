@@ -10,14 +10,26 @@ public enum UISoundsType
 };
 public enum SoundEffectType
 {
+    NONE,
     HIT,
     DEATH
 };
 
 public enum MusicType
 {
+    NONE,
     MENU,
     GAME
+};
+//Will use this later to help ID the caller for the audio manager, need to optimize the whole soundmanager class :/
+public enum AudioCallerID
+{
+    NONE,
+    //Button clicks or meny music
+    UI,
+    //Hit and death events
+    EVENT
+
 };
 public class SoundManager : Node2D
 {
@@ -41,6 +53,8 @@ public class SoundManager : Node2D
         AddChild(music);
         //Load a few audio samples
         soundEffectsList.Add(ResourceLoader.Load("res://Sounds/Effects/impactsplat.wav") as AudioStream);
+        soundEffectsList.Add(ResourceLoader.Load("res://Sounds/Effects/ButtonClick.wav") as AudioStream);
+
         musicList.Add(ResourceLoader.Load("res://Sounds/Music/the_kings_forgotten_medallion.ogg") as AudioStream);
 
     }
@@ -50,7 +64,14 @@ public class SoundManager : Node2D
         //Change the music type
         if (paei.musicType == MusicType.MENU)
         {
-
+            music.Stream = musicList[0];
+            music.Play();
+        }
+        if (paei.uiSoundsType == UISoundsType.CLICK)
+        {
+            //If the target is not the map it must be one of the blobs so we want to play the impactsplat sound
+            soundEffects.Stream = soundEffectsList[1];
+            soundEffects.Play();
         }
         if (paei.soundEffectType == SoundEffectType.HIT)
         {

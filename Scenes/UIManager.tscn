@@ -25,6 +25,7 @@ __meta__ = {
 }
 
 [node name="Menu" type="VBoxContainer" parent="."]
+visible = false
 margin_left = 120.0
 margin_top = 80.0
 margin_right = 1160.0

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using EventCallback;
 
-public class GreenBlobCollision : RigidBody2D
+public class GreenBlobCollision : Node
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -21,13 +21,13 @@ public class GreenBlobCollision : RigidBody2D
         //if(col.Count > 0) GD.Print("Hit detected fom the _Process methos");  
     }
 
-    public void BodyEntered(Node body)
+    public void RigidBody2DBodyEntered(Node body)
     {
         if (body.IsInGroup("RedBlob"))
         {
             HitEvent hei = new HitEvent();
             hei.target = (Node2D)body;
-            hei.attacker = (Node2D)this;
+            hei.attacker = (Node2D)GetParent();
             hei.damage = 50;
             hei.FireEvent();
         }
@@ -36,15 +36,15 @@ public class GreenBlobCollision : RigidBody2D
             if (((BlueBlobCollision)body).Infected())
             {
                 HitEvent hei = new HitEvent();
-                hei.target = (Node2D)this;
+                hei.target = (Node2D)GetParent();
                 hei.attacker = (Node2D)body;
                 hei.damage = 100;
                 hei.FireEvent();
             }
         }
-                    PlayAudioEvent paei = new PlayAudioEvent();
-            paei.soundEffectType = SoundEffectType.HIT;
-            paei.AudioTarget = (Node2D)this;
-            paei.FireEvent();
+        PlayAudioEvent paei = new PlayAudioEvent();
+        paei.soundEffectType = SoundEffectType.HIT;
+        paei.AudioTarget = (Node2D)GetParent();
+        paei.FireEvent();
     }
 }

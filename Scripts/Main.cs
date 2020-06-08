@@ -93,6 +93,7 @@ public class Main : Node2D
 
     private void StartGame()
     {
+        GD.Print("StartGame");
         //Instance the map and set it as a child of the main scene
         map = mapScene.Instance();
         //Set the map as the child of the main scene
@@ -122,7 +123,7 @@ public class Main : Node2D
 
     private void GetUIInput(UIInputEvent uiiei)
     {
-if(uiiei.startPressed) StartGame();
+        if (uiiei.startPressed) StartGame();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
