@@ -76,7 +76,7 @@
     <Compile Include="Scripts\EventSystem\InputCallbackEvent.cs" />
     <Compile Include="Scripts\EventSystem\SendHealthEvent.cs" />
     <Compile Include="Scripts\EventSystem\WinEvent.cs" />
-    <Compile Include="Scripts\EventSystem\LoseEvent.cs" />
+    <Compile Include="Scripts\EventSystem\GameOverEvent.cs" />
     <Compile Include="Scripts\SoundManager.cs" />
     <Compile Include="Scripts\UIManager.cs" />
     <Compile Include="Scripts\CameraManager.cs" />

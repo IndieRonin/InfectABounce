@@ -18,7 +18,7 @@ Node2D target = null;
     {
         SetShaderEvent.RegisterListener(SetShader);
 
-        crossHairShader = GetNode<ColorRect>("CanvasLayer/CrossHair");
+        //crossHairShader = GetNode<ColorRect>("CanvasLayer/CrossHair");
         blurShader = GetNode<ColorRect>("CanvasLayer/Blur");
         blurAndWaterShader = GetNode<ColorRect>("CanvasLayer/BlurAndWater");
         
@@ -39,14 +39,15 @@ Node2D target = null;
 
     private void DisableAllShaders()
 {
-    crossHairShader.Hide();
     blurShader.Hide();
+    blurAndWaterShader.Hide();
 }
 
     private void SetShader(SetShaderEvent ssei)
     {
-        //To be done
-        //if(ssei.disableAll);
-
+        DisableAllShaders();
+        if(ssei.showBlur) blurShader.Show();
+        if(ssei.showBlurAndWater) blurAndWaterShader.Show();
+        if(ssei.disableAll) DisableAllShaders();
     }
 }

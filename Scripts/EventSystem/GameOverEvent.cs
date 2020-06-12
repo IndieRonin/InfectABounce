@@ -3,7 +3,7 @@ using System;
 
 namespace EventCallback
 {
-    public class LoseEvent : Event<LoseEvent>
+    public class GameOverEvent : Event<GameOverEvent>
     {
     }
 }

@@ -67,6 +67,7 @@ __meta__ = {
 }
 
 [node name="BlurAndWater" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0

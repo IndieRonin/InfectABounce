@@ -48,6 +48,8 @@ public class Main : Node2D
 
     //The amount of inti body cells
     List<Node> greenBlobList = new List<Node>();
+    //List to keep track of all the blue blobs to free theem when the game eneds
+    List<Node> blueBlobsList = new List<Node>();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -106,10 +108,16 @@ public class Main : Node2D
         fullscreenShader = fullscreenShaderScene.Instance();
         //Set the map as the child of the main scene
         AddChild(fullscreenShader);
+        SetShaderEvent ssei = new SetShaderEvent();
+        ssei.showBlurAndWater = true;
+        ssei.FireEvent();
     }
 
     private void StartGame()
     {
+        SetShaderEvent ssei = new SetShaderEvent();
+        ssei.showBlur = true;
+        ssei.FireEvent();
         //Instance the map and set it as a child of the main scene
         map = mapScene.Instance();
         //Set the map as the child of the main scene
@@ -136,16 +144,20 @@ public class Main : Node2D
     private void StopGame()
     {
         map.QueueFree();
-
-        //TODO: Set the fullscreenShader to blur only for the menu 
-
+        //Change the shader for the end game screens
+        SetShaderEvent ssei = new SetShaderEvent();
+        ssei.showBlurAndWater = true;
+        ssei.FireEvent();
+        //Set the camera back to the main scene
         CameraEvent cei = new CameraEvent();
         cei.target = (Node2D)redBlob.GetParent();
-        cei.dragMarginHorizontal = true;
-        cei.dragMarginVertical = true;
+        cei.dragMarginHorizontal = false;
+        cei.dragMarginVertical = false;
         cei.FireEvent();
 
         blueBlob.QueueFree();
+
+        redBlob.QueueFree();
 
         greenBlob.QueueFree();
     }
@@ -154,6 +166,8 @@ public class Main : Node2D
     {
         if (dei.target.IsInGroup("RedBlob"))
         {
+            GameOverEvent goei = new GameOverEvent();
+            goei.FireEvent();
             StopGame();
         }
     }
@@ -165,8 +179,9 @@ public class Main : Node2D
             if (cellsLeftToConvert[i].GetInstanceId() == ccei.CovertedCell.GetInstanceId())
             {
                 cellsLeftToConvert.RemoveAt(i);
-                if(cellsLeftToConvert.Count == 0)
+                if (cellsLeftToConvert.Count == 0)
                 {
+                    StopGame();
                     WinEvent wei = new WinEvent();
                     wei.FireEvent();
                 }
@@ -231,6 +246,7 @@ public class Main : Node2D
                 lastSpawnPoint = newSpawnPoint;
                 AddChild(blueBlob);
                 cellsLeftToConvert.Add(blueBlob);
+                blueBlobsList.Add(blueBlob);
                 rng.Randomize();
             }
         }

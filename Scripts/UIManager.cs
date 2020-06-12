@@ -12,6 +12,8 @@ public class UIManager : Control
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        WinEvent.RegisterListener(ShowWin);
+        GameOverEvent.RegisterListener(ShowGameOver);
         menu = GetNode<VBoxContainer>("Menu");
         win = GetNode<VBoxContainer>("Win");
         gameOver = GetNode<VBoxContainer>("GameOver");
@@ -41,15 +43,16 @@ public class UIManager : Control
 
     }
 
-    private void ShowWin()
+    private void ShowWin(WinEvent wei)
     {
-
+        HideAll();
+        win.Show();
     }
 
-    private void ShowGameOver()
+    private void ShowGameOver(GameOverEvent goei)
     {
-
-
+         HideAll();
+        gameOver.Show();
     }
     public void StartPressed()
     {
