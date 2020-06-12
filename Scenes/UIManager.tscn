@@ -70,5 +70,37 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Exit"
 flat = true
+
+[node name="Win" type="VBoxContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Win"]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_vertical = 3
+text = "You have won"
+align = 1
+valign = 1
+
+[node name="GameOver" type="VBoxContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GameOver"]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_vertical = 3
+text = "You have lost"
+align = 1
+valign = 1
 [connection signal="pressed" from="Menu/CentreRow/Buttons/Start" to="." method="StartPressed"]
 [connection signal="pressed" from="Menu/CentreRow/Buttons/Exit" to="." method="ExitPressed"]

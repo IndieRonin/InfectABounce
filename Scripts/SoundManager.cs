@@ -48,6 +48,7 @@ public class SoundManager : Node2D
         PlayAudioEvent.RegisterListener(PlayAudio);
         //Create the audio stream players and add them as children tot the sound manager
         soundEffects.Name = "SoundEffects";
+        soundEffects.VolumeDb = -15f;
         AddChild(soundEffects);
         music.Name = "Music";
         AddChild(music);
@@ -64,6 +65,7 @@ public class SoundManager : Node2D
         //Change the music type
         if (paei.musicType == MusicType.MENU)
         {
+            GD.Print("Play music was called");
             music.Stream = musicList[0];
             music.Play();
         }

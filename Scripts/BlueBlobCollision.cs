@@ -23,14 +23,20 @@ public class BlueBlobCollision : RigidBody2D
     {
         if (body.IsInGroup("RedBlob"))
         {
+            //Set the infected bool to true to change the sprite
             infected = true;
+            //Fire the convert event to notify the cell list in main to remove the cell from the unconverted list
+            CellConvertEvent ccei = new CellConvertEvent();
+            ccei.CovertedCell = this;
+            ccei.FireEvent();
+            //Swap out sprites to the red converted sprite
             blueSprite.Hide();
             redSprite.Show();
         }
-                    PlayAudioEvent paei = new PlayAudioEvent();
-            paei.soundEffectType = SoundEffectType.HIT;
-            paei.AudioTarget = (Node2D)this;
-            paei.FireEvent();
+        PlayAudioEvent paei = new PlayAudioEvent();
+        paei.soundEffectType = SoundEffectType.HIT;
+        paei.AudioTarget = (Node2D)this;
+        paei.FireEvent();
 
     }
 

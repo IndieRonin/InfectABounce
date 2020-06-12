@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\EventSystem\CellConvertEvent.cs" />
+    <Compile Include="Scripts\EventSystem\SetShaderEvent.cs" />
+    <Compile Include="Scripts\FullScreenShaders.cs" />
     <Compile Include="Scripts\GreenBlobMovement.cs" />
     <Compile Include="Scripts\EventSystem\UIInputEvent.cs" />
     <Compile Include="Scripts\RedBlobCollision.cs" />

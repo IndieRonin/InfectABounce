@@ -6,11 +6,15 @@ public class UIManager : Control
 {
     //Grab the screen nodes in the UI
     VBoxContainer menu;
+    VBoxContainer win;
+    VBoxContainer gameOver;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         menu = GetNode<VBoxContainer>("Menu");
+        win = GetNode<VBoxContainer>("Win");
+        gameOver = GetNode<VBoxContainer>("GameOver");
 
         ShowMenu();
     }
@@ -18,6 +22,8 @@ public class UIManager : Control
     private void HideAll()
     {
         menu.Hide();
+        win.Hide();
+        gameOver.Hide();
     }
 
     private void ShowMenu()

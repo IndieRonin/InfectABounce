@@ -48,8 +48,7 @@ public class Health : Node
         dei.Description = "Unit " + this.Name + " has died.";
         dei.target = (Node2D)GetParent();
         dei.FireEvent();
-        //Remove the parent node forn the scene
-        dei.target.QueueFree();
+        GetParent().QueueFree();
     }
     public override void _ExitTree()
     {

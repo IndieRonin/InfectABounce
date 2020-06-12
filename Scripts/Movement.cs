@@ -4,7 +4,9 @@ using EventCallback;
 public class Movement : RigidBody2D
 {
     //The shot speed of the ball
-    float speed = 1000;
+    float speed = 1000f;
+
+    float maxSpeed = 5f;
     //The direction the force will be applied to the blob
     Vector2 moveDirection;
     //The start position of the click
@@ -39,6 +41,14 @@ public class Movement : RigidBody2D
         ApplyCentralImpulse(moveDirection * speed);
         dragging = false;
         dragComplete = false;
+
+        //Bug or feature? Tis piece of code forces the red blob to stop before being able to shoot of in a direction again
+        if (Mathf.Abs(LinearVelocity.x) > maxSpeed || Mathf.Abs(LinearVelocity.y) > maxSpeed)
+        {
+            Vector2 newSpeed = LinearVelocity.Normalized();
+            newSpeed *= maxSpeed;
+            LinearVelocity = newSpeed;
+        }
     }
 
     private void GrabInput(InputCallbackEvent icei)

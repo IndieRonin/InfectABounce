@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using EventCallback;
 public class Main : Node2D
 {
@@ -11,6 +12,10 @@ public class Main : Node2D
     PackedScene uiManagerScene = new PackedScene();
     //The Node for the UI manager
     Node uiManager;
+    //The scene for the UI mananger for the game
+    PackedScene fullscreenShaderScene = new PackedScene();
+    //The Node for the UI manager
+    Node fullscreenShader;
     //The scene for the sound mananger for the game
     PackedScene soundManagerScene = new PackedScene();
     //The Node for the sound manager
@@ -38,10 +43,17 @@ public class Main : Node2D
     //The player actors
     Node greenBlob;
 
+    //The amount of cels left to convert before victory is achieved
+    List<Node> cellsLeftToConvert = new List<Node>();
+
+    //The amount of inti body cells
+    List<Node> greenBlobList = new List<Node>();
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         UIInputEvent.RegisterListener(GetUIInput);
+        CellConvertEvent.RegisterListener(CellConverted);
         //Load all the needed scenes for the games start
         LoadScenes();
         InstatiateScenes();
@@ -53,6 +65,8 @@ public class Main : Node2D
         inputManagerScene = ResourceLoader.Load("res://Scenes/InputManager.tscn") as PackedScene;
         //Load the UI manager scene into the packed scene to load it later
         uiManagerScene = ResourceLoader.Load("res://Scenes/UIManager.tscn") as PackedScene;
+        //Load the UI manager scene into the packed scene to load it later
+        fullscreenShaderScene = ResourceLoader.Load("res://Scenes/FullScreenShaders.tscn") as PackedScene;
         //Load the sound manager scene into the packed scene to load it later
         soundManagerScene = ResourceLoader.Load("res://Scenes/SoundManager.tscn") as PackedScene;
 
@@ -79,8 +93,7 @@ public class Main : Node2D
         AddChild(inputManager);
         //Instance the map and set it as a child of the main scene
         camera = cameraScene.Instance();
-        //Set the map as the child of the main scene
-        AddChild(camera);
+
         //Instance the UI manager and set it as a child of the main scene
         uiManager = uiManagerScene.Instance();
         //Set the UI manager as the child of the main scene
@@ -89,36 +102,76 @@ public class Main : Node2D
         soundManager = soundManagerScene.Instance();
         //Set the sound manager as the child of the main scene
         AddChild(soundManager);
+        //Instance the fullscreenshader and set it as a child of the main scene
+        fullscreenShader = fullscreenShaderScene.Instance();
+        //Set the map as the child of the main scene
+        AddChild(fullscreenShader);
     }
 
     private void StartGame()
     {
-        GD.Print("StartGame");
         //Instance the map and set it as a child of the main scene
         map = mapScene.Instance();
         //Set the map as the child of the main scene
         AddChild(map);
-
         //Instance thet reb blob scene
         redBlob = redBlobScene.Instance();
         //Set the blobs spawn position
         ((Node2D)redBlob).Position = new Vector2(300, 300);
         //Add the reb blob as a child of the main scene
         AddChild(redBlob);
+        //Set the camera as the child of the main scene
+        AddChild(camera);
 
-        //Instance thet reb blob scene
-        blueBlob = blueBlobScene.Instance();
-        //Set the blobs spawn position
-        ((Node2D)blueBlob).Position = new Vector2(500, 300);
-        //Add the reb blob as a child of the main scene
-        AddChild(blueBlob);
+        CameraEvent cei = new CameraEvent();
+        cei.target = (Node2D)redBlob;
+        cei.dragMarginHorizontal = true;
+        cei.dragMarginVertical = true;
+        cei.FireEvent();
 
-        //Instance thet reb blob scene
-        greenBlob = greenBlobScene.Instance();
-        //Set the blobs spawn position
-        ((Node2D)greenBlob).Position = new Vector2(700, 300);
-        //Add the reb blob as a child of the main scene
-        AddChild(greenBlob);
+        SpawnGreenBlobs();
+        SpawnBlueBlobs();
+    }
+
+    private void StopGame()
+    {
+        map.QueueFree();
+
+        //TODO: Set the fullscreenShader to blur only for the menu 
+
+        CameraEvent cei = new CameraEvent();
+        cei.target = (Node2D)redBlob.GetParent();
+        cei.dragMarginHorizontal = true;
+        cei.dragMarginVertical = true;
+        cei.FireEvent();
+
+        blueBlob.QueueFree();
+
+        greenBlob.QueueFree();
+    }
+
+    private void PlayerDied(DeathEvent dei)
+    {
+        if (dei.target.IsInGroup("RedBlob"))
+        {
+            StopGame();
+        }
+    }
+
+    private void CellConverted(CellConvertEvent ccei)
+    {
+        for (int i = 0; i < cellsLeftToConvert.Count; i++)
+        {
+            if (cellsLeftToConvert[i].GetInstanceId() == ccei.CovertedCell.GetInstanceId())
+            {
+                cellsLeftToConvert.RemoveAt(i);
+                if(cellsLeftToConvert.Count == 0)
+                {
+                    WinEvent wei = new WinEvent();
+                    wei.FireEvent();
+                }
+            }
+        }
     }
 
     private void GetUIInput(UIInputEvent uiiei)
@@ -126,9 +179,60 @@ public class Main : Node2D
         if (uiiei.startPressed) StartGame();
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    private void SpawnGreenBlobs()
     {
+        Vector2 newSpawnPoint = Vector2.Zero;
+        Vector2 lastSpawnPoint = Vector2.Zero;
+        RandomNumberGenerator rng = new RandomNumberGenerator();
+        rng.Randomize();
 
+        //The minimum and maximum spawn distance from the last spawned position
+        int minSpawnDistance = 400, maxSpawnDistance = 800;
+
+        for (int y = 0; y < 2; y++)
+        {
+            newSpawnPoint.y = rng.RandiRange(minSpawnDistance, maxSpawnDistance) + lastSpawnPoint.y;
+            lastSpawnPoint.x = 0f;
+            for (int x = 0; x < 4; x++)
+            {
+                newSpawnPoint.x = rng.RandiRange(minSpawnDistance, maxSpawnDistance) + lastSpawnPoint.x;
+
+                greenBlob = greenBlobScene.Instance();
+                ((Node2D)greenBlob).Position = newSpawnPoint;
+                ((RigidBody2D)greenBlob).LinearVelocity = new Vector2(rng.Randf() * 30, rng.Randf() * 30);
+                lastSpawnPoint = newSpawnPoint;
+                AddChild(greenBlob);
+                greenBlobList.Add(greenBlob);
+
+                rng.Randomize();
+            }
+        }
+    }
+
+    private void SpawnBlueBlobs()
+    {
+        Vector2 newSpawnPoint = Vector2.Zero;
+        Vector2 lastSpawnPoint = Vector2.Zero;
+        RandomNumberGenerator rng = new RandomNumberGenerator();
+        rng.Randomize();
+        //The minimum and maximum spawn distance from the last spawned position
+        int minSpawnDistance = 300, maxSpawnDistance = 500;
+        for (int y = 0; y < 4; y++)
+        {
+            newSpawnPoint.y = rng.RandiRange(minSpawnDistance, maxSpawnDistance) + lastSpawnPoint.y;
+            lastSpawnPoint.x = 0f;
+            for (int x = 0; x < 7; x++)
+            {
+                newSpawnPoint.x = rng.RandiRange(minSpawnDistance, maxSpawnDistance) + lastSpawnPoint.x;
+
+                blueBlob = blueBlobScene.Instance();
+                ((Node2D)blueBlob).Position = newSpawnPoint;
+                ((RigidBody2D)blueBlob).LinearVelocity = new Vector2(rng.Randf() * 30, rng.Randf() * 30);
+                lastSpawnPoint = newSpawnPoint;
+                AddChild(blueBlob);
+                cellsLeftToConvert.Add(blueBlob);
+                rng.Randomize();
+            }
+        }
     }
 }
