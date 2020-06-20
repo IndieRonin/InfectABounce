@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/FullScreenShaders.cs" type="Script" id=1]
 [ext_resource path="res://Shaders/GlowFullScreenCrossAirs.shader" type="Shader" id=2]
 [ext_resource path="res://Shaders/WaterAndBlur.shader" type="Shader" id=3]
-[ext_resource path="res://Sprites/1561892882713.jpg" type="Texture" id=4]
 [ext_resource path="res://Shaders/BlurFullScreenShader.shader" type="Shader" id=6]
 [ext_resource path="res://Shaders/WaterFullScreenShaders.shader" type="Shader" id=7]
 
@@ -33,11 +32,6 @@ shader_param/spriteScale = Vector2( 15, 15 )
 script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
-visible = false
-texture = ExtResource( 4 )
-centered = false
 
 [node name="CrossHair" type="ColorRect" parent="CanvasLayer"]
 visible = false

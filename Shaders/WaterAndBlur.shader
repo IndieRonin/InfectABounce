@@ -41,7 +41,7 @@ void fragment()
 	vec2 distort1 = vec2(noise(noisecoord1 + motion1), noise(noisecoord2 + motion1)) - vec2(0.5);
 	vec2 distort2 = vec2(noise(noisecoord1 + motion2), noise(noisecoord2 + motion2)) - vec2(0.5);
 	
-	vec2 distort_sum = (distort1 + distort2) /60.0;
+	vec2 distort_sum = (distort1 + distort2) /320.0;
 		
 	vec4 waterFinal = textureLod(SCREEN_TEXTURE, SCREEN_UV + distort_sum, 0.0);
 	

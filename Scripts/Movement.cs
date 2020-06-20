@@ -72,4 +72,9 @@ public class Movement : RigidBody2D
             dragComplete = false;
         }
     }
+
+    public override void _ExitTree()
+    {
+        InputCallbackEvent.UnregisterListener(GrabInput);
+    } 
 }

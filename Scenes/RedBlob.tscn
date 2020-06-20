@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Sprites/RedBlod.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/RedBlob.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Movement.cs" type="Script" id=2]
 [ext_resource path="res://Scripts/Health.cs" type="Script" id=3]
 [ext_resource path="res://Scripts/RedBlobCollision.cs" type="Script" id=4]

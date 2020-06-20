@@ -7,12 +7,14 @@
 [sub_resource type="DynamicFont" id=1]
 size = 64
 outline_size = 1
+outline_color = Color( 0.407843, 0.133333, 0.133333, 1 )
 use_filter = true
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 64
 outline_size = 1
+outline_color = Color( 0.407843, 0.133333, 0.133333, 1 )
 use_filter = true
 font_data = ExtResource( 3 )
 
@@ -25,7 +27,6 @@ __meta__ = {
 }
 
 [node name="Menu" type="VBoxContainer" parent="."]
-visible = false
 margin_left = 120.0
 margin_top = 80.0
 margin_right = 1160.0
@@ -36,19 +37,19 @@ __meta__ = {
 
 [node name="Logo" type="TextureRect" parent="Menu"]
 margin_right = 1040.0
-margin_bottom = 111.0
+margin_bottom = 160.0
 texture = ExtResource( 2 )
 stretch_mode = 4
 
 [node name="CentreRow" type="HBoxContainer" parent="Menu"]
-margin_top = 115.0
+margin_top = 164.0
 margin_right = 1040.0
 margin_bottom = 560.0
 size_flags_vertical = 3
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CentreRow"]
 margin_right = 1040.0
-margin_bottom = 445.0
+margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -57,7 +58,7 @@ margin_right = 1040.0
 margin_bottom = 101.0
 rect_min_size = Vector2( 300, 100 )
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.819608, 0.270588, 0.270588, 1 )
 text = "Start"
 flat = true
 
@@ -67,7 +68,7 @@ margin_right = 1040.0
 margin_bottom = 206.0
 rect_min_size = Vector2( 300, 100 )
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.819608, 0.270588, 0.270588, 1 )
 text = "Exit"
 flat = true
 

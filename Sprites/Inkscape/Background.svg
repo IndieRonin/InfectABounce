@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1792"
+   height="1792"
+   viewBox="0 0 1792 1792"
+   version="1.1"
+   id="svg4194"
+   inkscape:export-filename="/home/bitbadger/GameProjects/InfectABounce/Sprites/Background.png"
+   inkscape:export-xdpi="96.000099"
+   inkscape:export-ydpi="96.000099"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="Background.svg">
+  <defs
+     id="defs4188">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4765">
+      <stop
+         style="stop-color:#d04c46;stop-opacity:1"
+         offset="0"
+         id="stop4761" />
+      <stop
+         style="stop-color:#982d27;stop-opacity:1"
+         offset="1"
+         id="stop4763" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4765"
+       id="linearGradient4767"
+       x1="689.91516"
+       y1="3.3720391"
+       x2="689.91516"
+       y2="798.32269"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.28,2.24)" />
+    <filter
+       inkscape:label="Liquid Drawing"
+       inkscape:menu-tooltip="Gives a fluid and wavy expressionist drawing effect to images"
+       inkscape:menu="Image Paint and Draw"
+       x="-0.25"
+       width="1.5"
+       y="-0.25"
+       height="1.5"
+       style="color-interpolation-filters:sRGB"
+       id="filter5987">
+      <feGaussianBlur
+         result="result11"
+         stdDeviation="2"
+         id="feGaussianBlur5965" />
+      <feGaussianBlur
+         in="SourceGraphic"
+         stdDeviation="0.5"
+         result="result8"
+         id="feGaussianBlur5967" />
+      <feTurbulence
+         result="result9"
+         baseFrequency="0.08"
+         numOctaves="1"
+         type="fractalNoise"
+         id="feTurbulence5969" />
+      <feDisplacementMap
+         result="result10"
+         in2="result11"
+         xChannelSelector="G"
+         scale="100"
+         yChannelSelector="R"
+         id="feDisplacementMap5971" />
+      <feConvolveMatrix
+         bias="0"
+         result="result0"
+         preserveAlpha="true"
+         targetY="1"
+         targetX="1"
+         divisor="1"
+         in="result10"
+         kernelMatrix="1 1 1 1 -8 1 1 1 1 "
+         order="3 3"
+         id="feConvolveMatrix5973" />
+      <feColorMatrix
+         in="result0"
+         values="0 -6 0 0 1 0 -6 0 0 1 0 -6 0 0 1 0 0 0 1 0 "
+         result="result3"
+         id="feColorMatrix5975" />
+      <feComposite
+         operator="in"
+         in2="SourceGraphic"
+         in="result3"
+         result="fbSourceGraphic"
+         id="feComposite5977" />
+      <feBlend
+         in2="result8"
+         mode="multiply"
+         result="result12"
+         id="feBlend5979" />
+      <feGaussianBlur
+         stdDeviation="0.01"
+         in="result12"
+         result="result7"
+         id="feGaussianBlur5981" />
+      <feBlend
+         mode="screen"
+         in2="result12"
+         id="feBlend5983" />
+      <feComposite
+         operator="in"
+         in2="SourceGraphic"
+         id="feComposite5985" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.80513308"
+     inkscape:cx="902.83073"
+     inkscape:cy="1594.4972"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:showpageshadow="false"
+     showborder="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1060"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4191">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:url(#linearGradient4767);fill-opacity:1;stroke-width:4.30205;stroke-linecap:square;stroke-linejoin:round;paint-order:markers fill stroke;filter:url(#filter5987)"
+       id="rect4757"
+       width="1792"
+       height="1792"
+       x="0"
+       y="0" />
+  </g>
+</svg>

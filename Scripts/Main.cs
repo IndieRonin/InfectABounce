@@ -30,6 +30,10 @@ public class Main : Node2D
     //The Node for the camera manager
     Node camera;
 
+    PackedScene backgroundScene = new PackedScene();
+    //The Node for the camera manager
+    Node background;
+
     //The scene for the players actor
     PackedScene redBlobScene = new PackedScene();
     //The player actors
@@ -56,6 +60,7 @@ public class Main : Node2D
     {
         UIInputEvent.RegisterListener(GetUIInput);
         CellConvertEvent.RegisterListener(CellConverted);
+        DeathEvent.RegisterListener(OnDeathEvent);
         //Load all the needed scenes for the games start
         LoadScenes();
         InstatiateScenes();
@@ -71,6 +76,8 @@ public class Main : Node2D
         fullscreenShaderScene = ResourceLoader.Load("res://Scenes/FullScreenShaders.tscn") as PackedScene;
         //Load the sound manager scene into the packed scene to load it later
         soundManagerScene = ResourceLoader.Load("res://Scenes/SoundManager.tscn") as PackedScene;
+        //Load the bakcground scene
+        backgroundScene = ResourceLoader.Load("res://Scenes/Background.tscn") as PackedScene;
 
         //Load the map scene into the packed scene to load it later
         mapScene = ResourceLoader.Load("res://Scenes/Map.tscn") as PackedScene;
@@ -104,6 +111,11 @@ public class Main : Node2D
         soundManager = soundManagerScene.Instance();
         //Set the sound manager as the child of the main scene
         AddChild(soundManager);
+        //Create the background and set it as a child of the main scene
+        background = backgroundScene.Instance();
+        AddChild(background);
+
+
         //Instance the fullscreenshader and set it as a child of the main scene
         fullscreenShader = fullscreenShaderScene.Instance();
         //Set the map as the child of the main scene
@@ -159,16 +171,36 @@ public class Main : Node2D
 
         redBlob.QueueFree();
 
-        greenBlob.QueueFree();
+        foreach (Node blob in greenBlobList)
+        {
+            blob.QueueFree();
+        }
+
     }
 
-    private void PlayerDied(DeathEvent dei)
+    private void OnDeathEvent(DeathEvent dei)
     {
         if (dei.target.IsInGroup("RedBlob"))
         {
             GameOverEvent goei = new GameOverEvent();
             goei.FireEvent();
             StopGame();
+        }
+        if (dei.target.IsInGroup("GreenBlob"))
+        {
+            for (int i = 0; i < greenBlobList.Count; i++)
+            {
+                if (greenBlobList[i].GetInstanceId() == dei.target.GetInstanceId())
+                {
+                    greenBlobList.RemoveAt(i);
+                    if (cellsLeftToConvert.Count == 0)
+                    {
+                        StopGame();
+                        WinEvent wei = new WinEvent();
+                        wei.FireEvent();
+                    }
+                }
+            }
         }
     }
 
