@@ -102,7 +102,14 @@ public class Main : Node2D
         AddChild(inputManager);
         //Instance the map and set it as a child of the main scene
         camera = cameraScene.Instance();
-
+        ((Node2D)camera).Position = new Vector2(640, 360);
+        //Set the camera as the child of the main scene
+        AddChild(camera);
+         //Set the camera back to the main scene
+        CameraEvent cei = new CameraEvent();
+        //cei.target = (Node2D)redBlob.GetParent();
+        cei.target = (Node2D)this;
+        cei.FireEvent();
         //Instance the UI manager and set it as a child of the main scene
         uiManager = uiManagerScene.Instance();
         //Set the UI manager as the child of the main scene
@@ -123,6 +130,10 @@ public class Main : Node2D
         SetShaderEvent ssei = new SetShaderEvent();
         ssei.showBlurAndWater = true;
         ssei.FireEvent();
+
+        PlayAudioEvent paei = new PlayAudioEvent();
+        paei.musicType = MusicType.MENU;
+        paei.FireEvent();
     }
 
     private void StartGame()
@@ -140,9 +151,8 @@ public class Main : Node2D
         ((Node2D)redBlob).Position = new Vector2(300, 300);
         //Add the reb blob as a child of the main scene
         AddChild(redBlob);
-        //Set the camera as the child of the main scene
-        AddChild(camera);
 
+((Node2D)camera).Position = new Vector2(0, 0);
         CameraEvent cei = new CameraEvent();
         cei.target = (Node2D)redBlob;
         cei.dragMarginHorizontal = true;
@@ -160,22 +170,26 @@ public class Main : Node2D
         SetShaderEvent ssei = new SetShaderEvent();
         ssei.showBlurAndWater = true;
         ssei.FireEvent();
+
+        ((Node2D)camera).Position = new Vector2(640, 360);
         //Set the camera back to the main scene
         CameraEvent cei = new CameraEvent();
-        cei.target = (Node2D)redBlob.GetParent();
+        //cei.target = (Node2D)redBlob.GetParent();
+        cei.target = (Node2D)this;
         cei.dragMarginHorizontal = false;
         cei.dragMarginVertical = false;
         cei.FireEvent();
 
-        blueBlob.QueueFree();
-
-        redBlob.QueueFree();
-
-        foreach (Node blob in greenBlobList)
+        for (int i = 0; i < blueBlobsList.Count; i++)
         {
-            blob.QueueFree();
+            blueBlobsList[i].QueueFree();
+        }
+        for (int i = 0; i < greenBlobList.Count; i++)
+        {
+            greenBlobList[i].QueueFree();
         }
 
+        redBlob.QueueFree();
     }
 
     private void OnDeathEvent(DeathEvent dei)
@@ -193,12 +207,6 @@ public class Main : Node2D
                 if (greenBlobList[i].GetInstanceId() == dei.target.GetInstanceId())
                 {
                     greenBlobList.RemoveAt(i);
-                    if (cellsLeftToConvert.Count == 0)
-                    {
-                        StopGame();
-                        WinEvent wei = new WinEvent();
-                        wei.FireEvent();
-                    }
                 }
             }
         }
