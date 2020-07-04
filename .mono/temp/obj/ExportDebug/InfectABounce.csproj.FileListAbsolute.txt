@@ -1,0 +1,5 @@
+/home/bitbadger/GameProjects/InfectABounce/.mono/temp/bin/ExportDebug/InfectABounce.dll
+/home/bitbadger/GameProjects/InfectABounce/.mono/temp/bin/ExportDebug/InfectABounce.dll.mdb
+/home/bitbadger/GameProjects/InfectABounce/.mono/temp/obj/ExportDebug/InfectABounce.csprojResolveAssemblyReference.cache
+/home/bitbadger/GameProjects/InfectABounce/.mono/temp/obj/ExportDebug/InfectABounce.dll
+/home/bitbadger/GameProjects/InfectABounce/.mono/temp/obj/ExportDebug/InfectABounce.dll.mdb
